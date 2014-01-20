@@ -1,0 +1,154 @@
+<head>
+<script>
+
+var x;
+var y;
+var answer;
+var operator;
+
+var xQuestion;
+var yQuestion;
+
+var clientAnswer;
+
+
+
+function createAnswer()
+{
+	operator=Math.floor((Math.random()*4)+1);
+	switch (operator)
+	{
+	case 1:
+		operators.innerHTML="Addition";
+		break;
+	case 2:
+		operators.innerHTML="Subtraction";
+		break;
+	case 3:
+		operators.innerHTML="Multiplication";
+		break;
+	case 4:
+		operators.innerHTML="Division";
+	}
+
+	switch (operator)
+	{
+	case 1:
+		x=Math.round(Math.random()*20);
+		y=Math.round(Math.random()*20);
+		answer=x+y;
+		distimes.innerHTML=answer;
+		break;
+	case 2:
+		x=Math.round(Math.random()*40);
+		y=Math.round(Math.random()*40);
+		while (y>x){
+		y=Math.round(Math.random()*40);
+		}
+		answer=x-y;
+		distimes.innerHTML=answer;
+		break;
+	case 3:
+		x=Math.round(Math.random()*9);
+		y=Math.round(Math.random()*9);
+		answer=x*y;
+		distimes.innerHTML=answer;
+		break;
+	case 4:
+		x=Math.round(Math.random()*64);
+		y=Math.round(Math.random()*9);
+		while ((x/y)%1!=0)
+		{
+		x=Math.round(Math.random()*64);
+		y=Math.round(Math.random()*9);
+		}
+		answer = x/y;
+		distimes.innerHTML=answer;
+		break;
+		
+	}
+	
+
+	
+
+}
+
+function createQuestion()
+{
+	switch (operator)
+	{
+	case 1:
+		xQuestion=x;
+		//displus.innerHTML=xQuestion;
+		yQuestion = y;
+		displus.innerHTML=xQuestion+ " + " + yQuestion;
+		//BRO.innerHTML=yQuestion;
+		break;
+	case 2:
+		xQuestion=y;
+		//BRO.innerHTML=xQuestion;
+		yQuestion =x;
+		//displus.innerHTML=yQuestion;
+		displus.innerHTML=yQuestion+ " - " + xQuestion;
+		break;
+	case 3:
+		xQuestion=x;
+		//displus.innerHTML=xQuestion;
+		yQuestion=y;
+		//BRO.innerHTML=yQuestion;
+		displus.innerHTML=xQuestion+ " * " + yQuestion;
+		break;
+	case 4:
+		xQuestion=x;
+		//displus.innerHTML=xQuestion;
+		yQuestion=y;
+		//BRO.innerHTML=yQuestion;
+		displus.innerHTML=xQuestion+ " / " + yQuestion;
+		break;
+	}
+	
+
+}
+
+function checkMath()
+{
+	clientAnswer = document.getElementById("Bob").value;
+	if (answer===Number(clientAnswer))
+	{
+		alert('CORRECT');
+	}
+	else 
+	{
+		alert('INCORRECT');
+	}
+
+}
+
+
+
+</script>
+
+</head>
+
+<body onLoad = "createAnswer()", "createQuestion()" , "checkMath()">
+<table border="1" cellpadding="10" cellspacing="0" bordercolor="#000000" bgcolor="#C0C0C0"><tr><td>
+<p id =operators></p>
+<!--<p id=distimes></p>-->
+</td></tr></table>
+
+<p><input type="button" value="Generate Answer" onclick=createAnswer()></p>
+
+<p><input type="button" value="Generate Question" onclick=createQuestion()></p>
+<table border="1" cellpadding="10" cellspacing="0" bordercolor="#000000" bgcolor="#C0C0C0"><tr><td>
+<p id=displus></p>
+<!--<p id=BRO></p>-->
+</td></tr></table>
+
+
+<p>Answer=<input id = "Bob" maxlength=3 type=number></p>
+<p><input type="button" value="CHECK" onclick=checkMath()></p>
+
+
+
+</body>
+</html> 

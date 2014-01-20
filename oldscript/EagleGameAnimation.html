@@ -1,0 +1,154 @@
+<html>
+	<body>
+		<input type = "button" value = "up" onmousedown = "moveUp();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
+		<input type = "button" value = "down" onmousedown = "moveDown();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
+		<p></p>
+	</body>
+</html>
+<script>
+
+var e = document.createElement("div");
+var eagle = new Mobile(0,194,50,100,"#ccffaa");
+eagle.health = 100;
+eagle.depleteRate = 0.10; //Fraction of health depleted per second
+
+
+var f = document.createElement("div");
+var fish = new Mobile(900,194,25,50,"#ffbb33");
+
+var animate;
+var frame;
+
+var text = document.createElement('p');
+document.body.appendChild(text);
+
+var velX;
+
+var isCorrectAnswer;
+
+var count = 0;
+
+function Mobile(refX,refY,height,width,color)
+{
+	this.refX = refX; // start position (right is positive)
+	this.refY = refY; // start position (down is positive)
+	this.disX = 0; // right is positive
+	this.disY = 0; // up is positive
+	this.posX = this.refX + this.disX;
+	this.posY = this.refY - this.disY; //Up is positive therefore the actual position have down as positive therefore disY is subtracted
+	this.height = height; // How far down the mob extends from posX
+	this.width = width; //How far right the mob extends from posY
+	this.color = color;
+	this.isTouching = function(mobile)
+	{
+		var aboveMob = this.posY + this.height < mobile.posY;
+		var belowMob = this.posY > mobile.posY + mobile.height;
+		var toLeftMob = this.posX + this.width < mobile.posX;
+		var toRightMob = this.posX > mobile.posX + mobile.width;
+		var aboveThis = mobile.posY + mobile.height < this.posY;
+		var belowThis = mobile.posY > this.posY + this.height;
+		var toLeftThis = mobile.posX + mobile.width < this.posX;
+		var toRightThis = mobile.posX > this.posX + this.width;
+			
+		return (!aboveMob&&!belowMob&&!toLeftMob&&!toRightMob)||(!aboveThis&&!belowThis&&!toLeftThis&&!toRightThis)
+	};
+}
+
+function addMobile(element,mob)
+{
+	document.body.appendChild(element);
+	element.style.position = "absolute";
+	element.style.width = mob.width;
+	element.style.height = mob.height;
+	element.style.marginLeft = mob.posX;
+	element.style.marginTop = mob.posY;
+	element.style.backgroundColor = mob.color;
+}
+
+function moveUp()
+{
+	clearTimeout(animate);
+	if(eagle.posY > 10 )
+	{
+		eagle.disY+=10;
+		eagle.posY = eagle.refY - eagle.disY;
+		e.style.marginTop = eagle.posY + 'px';
+		animate = setTimeout(moveUp,25);
+	}
+}
+function moveDown()
+{
+	clearTimeout(animate);
+	if(eagle.posY < 388)
+	{
+		eagle.disY-=10;
+		eagle.posY = eagle.refY - eagle.disY;
+		e.style.marginTop = eagle.posY + 'px';
+		animate = setTimeout(moveDown,25);
+	}
+}
+function stop()
+{
+	clearTimeout(animate);
+}
+
+function fly()
+{
+	clearTimeout(fly);
+	velX = eagle.health + 200; //pixels per second
+	eagle.health = eagle.health*(1-eagle.depleteRate/40)   ;
+	text.innerHTML = (eagle.health + " ");
+	fish.refX -= velX/40;
+	moveFish();
+	fish.posX = fish.refX + fish.disX;
+	fish.posY = fish.refY - fish.disY;
+	f.style.marginLeft = fish.posX + "px";
+	f.style.marginTop = fish.posY + "px";
+	if(eagle.isTouching(fish))
+	{
+		Question();
+		if(isCorrectAnswer == 1)
+		{
+			eagle.health += 100;
+		}
+		fish.refX = 900;
+	}
+	if(fish.posX < 0)
+	{
+		fish.refX = 900;
+		//fish.refY = (Math.random * 100) + 300;
+	}
+	if(eagle.health > 1)
+	{
+		frame = setTimeout(fly,25);
+	}
+	else
+	{
+		clearTimeout(fly);
+		//GAMEOVER();
+	}
+}
+function Question()
+{
+	clearTimeout(fly);
+	isCorrectAnswer = prompt("1 or 0");
+}
+function moveFish()
+{
+	count++;
+	fish.disY = 150*Math.cos(count/10);
+}
+function GameOver()
+{
+
+}
+onload = function()
+{
+	addMobile(e,eagle);
+	addMobile(f,fish);
+	fly();
+}
+
+
+
+</script>
