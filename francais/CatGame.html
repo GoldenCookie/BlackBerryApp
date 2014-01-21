@@ -7,10 +7,10 @@
          <body onLoad = "createAnswer(), createQuestion(), ready()">
                 <div id= mainBox>
                         <img id = sky src= "images\catBackground.jpg"></img>
-						<a href= "Menu.html"><button id="backButton"><p>Back</p></button></a>
+						<a href= "Menu.html"><button id="backButton"><p>Retourne</p></button></a>
                                                 <form name = "blah" >
                                                 <input id = gameInfo type= "text" name = "scoreBox" value= "Score: 0" readonly>
-                                                <input id = info type= "text" name = "ammoBox" value="Apples: 0" readonly>
+                                                <input id = info type= "text" name = "ammoBox" value="Pommes: 0" readonly>
                                                 </form>
 						<button id = gameButton onclick = "doStuff();"><p><strong>Click to start!</strong><p><p>Or Read the Instructions!</p></button>
                 </div>
@@ -30,8 +30,8 @@
                                 <button class = number onClick = "inputNumber(0)">0</button>
                         </div>
                         <div>
-                                <button id = deleteButton onClick = "deleteNumber()">Delete</button>
-                                <button id = answerButton onClick = "checkMath()">Answer</button>
+                                <button id = deleteButton onClick = "deleteNumber()">Corriger</button>
+                                <button id = answerButton onClick = "checkMath()">Repondre</button>
 								<form name = "click" id = "input">
 								<input type="text" name = "questionBox" id = "question" value="fixed value" readonly>
 								<br>
@@ -39,9 +39,9 @@
 								<br>
 								</form>
 							<div id= move>
-								<input id = leftButton type = "button" value = "left" onmousedown = "moveLeft();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
-								<input id = rightButton type = "button" value = "right" onmousedown = "moveRight();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
-								<input id = fireButton type = "button" value = "fire" onClick = "getApples()"></input>
+								<input id = leftButton type = "button" value = "gauche" onmousedown = "moveLeft();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
+								<input id = rightButton type = "button" value = "droit" onmousedown = "moveRight();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
+								<input id = fireButton type = "button" value = "tirer" onClick = "getApples()"></input>
 							</div>
 						</div>
                 </div>
@@ -198,7 +198,7 @@ var frameRate = 75;
 var isGameOver = true;
 function ready()
 {
-	document.getElementById("gameButton").innerHTML = "<p>The object of this game is to drop apples on the mouse below</P><p>To earn apples you need to answer math questions properly.</P><p>You get 4 apples for each correct answer</P><p><strong>Controls: Use [Left] and [Down] keys on the bottom right to control your Cat</strong></p><p><strong>Press [Fire] to launch an apple!</strong></p><p>You get 10 points for hitting the rat</P><p><strong>Click to start!</strong></p>";
+	document.getElementById("gameButton").innerHTML = "<p>Objet est de frapper la souris ci-dessous avec des pommes</P><p>Pour avoir plus de pommes tu dois repondre aux des questions</P><p>Tu recoit 4 pommes pour chaque question</P><p><strong>Dirige la cat: Utilise les bouttons [Gauche] et [Droight]</strong></p><p><strong>Touche [tirer] pour lancer une pomme!</strong></p><p>Tu recoit 10 point pour frapper la souris</P><p><strong>Touche pour commencer!</strong></p>";
 	document.getElementById("gameButton").style.marginLeft = "400px";
 	document.getElementById("gameButton").style.marginTop = "30px";
 }
@@ -224,13 +224,13 @@ function getApples()
 			fire();
 			apples-=1;
 		}
-		document.blah.ammoBox.value="Apples: " + apples;
+		document.blah.ammoBox.value="Pommes: " + apples;
 }
 
 function refillApples()
 {
         apples = apples +4;
-        document.blah.ammoBox.value="Apples: " +apples;
+        document.blah.ammoBox.value="Pommes: " +apples;
 }
 
 
@@ -300,11 +300,11 @@ function createQuestion()
                                 yQuestion = y;
 								if(isLastCorrect)
 								{
-									document.click.questionBox.value="To Reload: " + xQuestion+ " + " + yQuestion+ " =";
+									document.click.questionBox.value="Plus pommes: " + xQuestion+ " + " + yQuestion+ " =";
 								}
 								else
 								{
-									document.click.questionBox.value="Try Again: " + xQuestion+ " + " + yQuestion+ " =";
+									document.click.questionBox.value="Mal: " + xQuestion+ " + " + yQuestion+ " =";
 								}
                                 break;
                         case 2:
@@ -312,11 +312,11 @@ function createQuestion()
                                 yQuestion =x;
                                 if(isLastCorrect)
 								{
-									document.click.questionBox.value="To Reload: " + yQuestion+ " - " + xQuestion+ " =";
+									document.click.questionBox.value="Plus pommes: " + yQuestion+ " - " + xQuestion+ " =";
 								}
 								else
 								{
-									document.click.questionBox.value="Try Again: " + yQuestion+ " - " + xQuestion+ " =";
+									document.click.questionBox.value="Mal: " + yQuestion+ " - " + xQuestion+ " =";
 								}
                                 break;
                         case 3:
@@ -324,11 +324,11 @@ function createQuestion()
                                 yQuestion=y;
                                 if(isLastCorrect)
 								{
-									document.click.questionBox.value="To Reload: " + xQuestion+ " x " + yQuestion+ " =";
+									document.click.questionBox.value="Plus pommes: " + xQuestion+ " x " + yQuestion+ " =";
 								}
 								else
 								{
-									document.click.questionBox.value="Try Again: " + xQuestion+ " x " + yQuestion+ " =";
+									document.click.questionBox.value="Mal: " + xQuestion+ " x " + yQuestion+ " =";
 								}
                                 break;
                         case 4:
@@ -336,11 +336,11 @@ function createQuestion()
                                 yQuestion=y;
                                 if(isLastCorrect)
 								{
-									document.click.questionBox.value="To Reload: " + xQuestion+ " / " + yQuestion+ " =";
+									document.click.questionBox.value="Plus pommes: " + xQuestion+ " / " + yQuestion+ " =";
 								}
 								else
 								{
-									document.click.questionBox.value="Try Again: " + xQuestion+ " / " + yQuestion+ " =";
+									document.click.questionBox.value="Mal: " + xQuestion+ " / " + yQuestion+ " =";
 								}
                                 break;
                         }

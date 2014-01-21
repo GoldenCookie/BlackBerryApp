@@ -7,7 +7,7 @@
         <body onLoad = "createAnswer(), createQuestion(), ready()">
                 <div id= mainBox>
                                 <img id = sky src= "images\eagleBackground.jpg"></img>
-                                <a href= "Menu.html"><button id="backButton"><p>Back</p></button></a>
+                                <a href= "Menu.html"><button id="backButton"><p>Retourne</p></button></a>
                                 
                                 
                                 <button id = gameButton onclick = "doStuff();"><p><strong>Click to start!</strong><p><p>Or Read the Instructions!</p></button>        
@@ -29,8 +29,8 @@
                                 <button class = number onClick = "inputNumber(0)">0</button>
                         </div>
                         <div>
-                                <button id = deleteButton onClick = "deleteNumber()">Delete</button>
-								<button id = answerButton onClick = "checkMath()">Answer</button>
+                                <button id = deleteButton onClick = "deleteNumber()">Corriger</button>
+								<button id = answerButton onClick = "checkMath()">Repondre</button>
                                 
                                 
                                 <form name = "click" id = "input">
@@ -40,8 +40,8 @@
                                 <br>
                                 </form>
 							<div id = move>
-                                <input id = upButton type = "button" value = "up" onmousedown = "moveUp();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
-								<input id = downButton type = "button" value = "down" onmousedown = "moveDown();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
+                                <input id = upButton type = "button" value = "monter" onmousedown = "moveUp();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
+								<input id = downButton type = "button" value = "descendre" onmousedown = "moveDown();" onmouseup = "stop();" onclick = "stop();" onmouseout = "stop();"></input>
 							</div>
 					   </div>
                 </div>
@@ -186,11 +186,11 @@ function ready()
 {
 	if(!isGameOver)
 	{
-		document.getElementById("gameButton").innerHTML = "<p>The object of this game is to FLY the farthest possible</p><p>Your health will drop as you fly farther</p><p><strong>Controls: Use [Up] and [Down] keys on the bottom right to control your Eagle</strong></p><p>Eating fish or mice restores health!</p><p>Hitting Trees or Gas Clouds decrease your health!</p><p>When you reach 0 health the game is over!</p><p>But you can answer a math question to start again! You can even keep your score!</p><p>You <strong>DO NOT</strong> need to answer math questions during flight</p><p><strong>Click to start!</strong></p>";
+		document.getElementById("gameButton").innerHTML = "<p>Object est de voler</p><p>Avec temps ton santer va desendre </p><p><strong>Control l'Aigle: Ultilise les buttons [monter] et [descendre]</strong></p><p>Manger des poisson et des souris pour plus de santer!</p><p>Fait attention de ne frapper pas les abres et les gaz!</p><p>Quand ton santer et 0 tu est mort </p><p>Tu peux repondre aux une question pour ganger un autre vie</p><p>Tu <strong>na pas besoin</strong> de repondre aux question qunad tu es en vie</p><p><strong>Touche pour commencer!</strong></p>";
 	}
 	else
 	{
-		document.getElementById("gameButton").innerHTML = "<p><strong>GAME OVER</strong><p></p>To Continue: Answer a question or read the Instructions!</p>";
+		document.getElementById("gameButton").innerHTML = "<p><strong>TU ES MORT</strong><p></p>Repondre a une question</p>";
 	}
 	document.getElementById("gameButton").style.marginLeft = "390px";
 	document.getElementById("gameButton").style.marginTop = "30px";
@@ -466,7 +466,7 @@ function fly()
         velX = eagle.health + 200; //pixels per second
 		distance += velX;
         eagle.health = eagle.health*(1-eagle.depleteRate/(1000/frameRate));
-        text.innerHTML = "Health: " + Math.round(eagle.health) + " Distance: " + Math.round(distance/1000);
+        text.innerHTML = "Santer: " + Math.round(eagle.health) + " Distance: " + Math.round(distance/1000);
         fish.refX -= velX/(1000/frameRate);
 		tree.refX -= velX/(1000/frameRate);
         moveFish();
@@ -529,7 +529,7 @@ function moveFish()
 function GameOver()
 {
 	eagle.health = 0;
-	text.innerHTML = "Health: " + Math.round(eagle.health) + " Distance: " + Math.round(distance/1000);
+	text.innerHTML = "Santer: " + Math.round(eagle.health) + " Distance: " + Math.round(distance/1000);
 	isGameOver = true;
 	ready();
 }

@@ -9,7 +9,7 @@
                                 
                           <div id= mainBox>
 						  <img id = sky src= "images\penguinBackground.jpg"></img>
-                        <a href= "Menu.html"><button id="backButton"><p>Back</p></button></a>
+                        <a href= "Menu.html"><button id="backButton"><p>Retourne</p></button></a>
                                                 
                                                 <form name = "blah" id = "rawr">
                                                 <input type= "text" name = "scoreBox" id = "meow" value="Score: 0" readonly>
@@ -34,8 +34,8 @@
                                 <button class = number onClick = "inputNumber(0)">0</button>
                         </div>
                         <div>
-                                <button id = deleteButton onClick = "deleteNumber()">Delete</button>
-                                <button id = answerButton onClick = "checkMath()">Answer</button>
+                                <button id = deleteButton onClick = "deleteNumber()">Corriger</button>
+                                <button id = answerButton onClick = "checkMath()">Repondre</button>
 								<form name = "click" id = "input">
 								<input type="text" name = "questionBox" id = "question" value="fixed value" readonly>
 								<br>
@@ -183,11 +183,11 @@ function ready()
 {
 	if(!isGameOver)
 	{
-		document.getElementById("gameButton").innerHTML = "<p>The object of this game is to answer math questions correctly.</p><p>You earn points for each correct answer</p> <p>Try to earn as many points as possible</p><p>If your answer correctly watch your penguin fly!</p><p>If you are wrong then the penguin will go for a swim.</p><p><strong>Click to start!</strong></p>";
+		document.getElementById("gameButton").innerHTML = "<p>Repondre aux de question</p><p>Tu recoit des point pour respondre aux question</p> <p>Chaque question est 1 point</p><p>Ton penguin peux voler si tu est correct</p><p>La penguin va nager si tu n'est pas correcte</p><p><strong>Toche pour commencer</strong></p>";
 	}
 	else
 	{
-		document.getElementById("gameButton").innerHTML = "<p><strong>GAME OVER</strong></p><p>Click to restart</p>";
+		document.getElementById("gameButton").innerHTML = "<p><strong>Reponse n'est pas correcte</strong></p><p>Touche pour recomencer</p>";
 	}
 	document.getElementById("gameButton").style.marginLeft = "420px";
 	document.getElementById("gameButton").style.marginTop = "40px";
