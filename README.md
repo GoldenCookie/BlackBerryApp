@@ -14,4 +14,13 @@ Internet Explorer
 
 -The individual files run, but clicking the links between them does not bring you to the linked file
 
-This App will be available shortly on blackberry world.
+This App is available on blackberry world.
+
+Authors:
+
+Stephen Morvai
+Tim Yu
+
+Art by:
+
+The grade 4s
