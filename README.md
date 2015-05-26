@@ -11,10 +11,7 @@ Blackberry Playbook
 
 Confirmed Not Supported:
 Internet Explorer
-
 -The individual files run, but clicking the links between them does not bring you to the linked file
-
-This App is available on blackberry world.
 
 Authors:
 
