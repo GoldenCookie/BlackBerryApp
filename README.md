@@ -3,7 +3,7 @@ GoldenCookie
 
 GoldenCookie's Repository
 
-An application to run on the BlackBerry Playbook for elementary school students based on the students specifications
+An application to be run on the BlackBerry Playbook for elementary school students based on the students specifications
 
 <strong>Supported:</strong>
 
