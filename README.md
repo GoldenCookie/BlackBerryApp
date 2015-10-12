@@ -5,22 +5,22 @@ GoldenCookie's Repository
 
 Goal: Create an Application to run on the BlackBerry Playbook for grade 4 students
 
-Supported:
+<strong>Supported:</strong>
 
 Google Chrome
 
 Blackberry Playbook
 
-Follow the instructions in the file <em> How to get this app on a playbook.doc </em>
+Follow the instructions in the file <em> How to get this App on a PlayBook.doc </em>
 
 
 
-Code by:
+<strong>Code by:</strong>
 
 Stephen Morvai
 
 Tim Yu
 
-Art by:
+<strong>Art by:</strong>
 
 The elementary school students
