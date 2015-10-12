@@ -9,15 +9,16 @@ Supported:
 Google Chrome
 Blackberry Playbook
 
-Confirmed Not Supported:
-Internet Explorer
--The individual files run, but clicking the links between them does not bring you to the linked file
+Follow
 
-Authors:
+
+
+Code by:
 
 Stephen Morvai
+
 Tim Yu
 
 Art by:
 
-The grade 4s
+The elementary school students
