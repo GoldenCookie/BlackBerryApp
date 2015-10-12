@@ -6,10 +6,12 @@ GoldenCookie's Repository
 Goal: Create an Application to run on the BlackBerry Playbook for grade 4 students
 
 Supported:
+
 Google Chrome
+
 Blackberry Playbook
 
-Follow
+Follow the instructions in the file <em> How to get this app on a playbook.doc </em>
 
 
 
