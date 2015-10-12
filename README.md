@@ -7,11 +7,9 @@ Goal: Create an Application to run on the BlackBerry Playbook for grade 4 studen
 
 <strong>Supported:</strong>
 
-Google Chrome
+Google Chrome, clone the repository and click index.html file
 
-Blackberry Playbook
-
-Follow the instructions in the file <em> How to get this App on a PlayBook.doc </em>
+Blackberry Playbook , Follow the instructions in the file <em> How to get this App on a PlayBook.doc </em>
 
 
 
